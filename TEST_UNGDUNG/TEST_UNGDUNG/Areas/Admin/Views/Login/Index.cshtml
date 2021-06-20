@@ -1,0 +1,46 @@
+﻿@model TEST_UNGDUNG.Areas.Admin.Model.LoginModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Đăng Nhập</title>
+    <link href="~/Asset/Admin/css/login.css" rel="stylesheet" />
+  
+    <link href="https://github.com/FortAwesome/Font-Awesome/blob/master/web-fonts-with-css/css/fontawesome.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-in-container">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, null, new { @class = "alert alert-danger" })
+                <h1>Sign in</h1>
+                <h2></h2>
+                <h3></h3>
+                @Html.TextBoxFor(model => model.username, new { @class = "form-control", @placeholder = "Email", @autofocus = "autofocus" })
+                @Html.TextBoxFor(model => model.password, new { @class = "form-control", @placeholder = "Password", @type = "password" })
+
+              
+                <a href="#">Quên mật khẩu ?</a>
+                <button name="login">Sign In</button>
+            }
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
